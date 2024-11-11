@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Pro - Music On The Go</title>
+    <link href="Login.css" rel="stylesheet" />
+    <script>
+        // Function to validate the login form
+        function validateLogin(event) {
+            // Prevent the form from submitting if validation fails
+            event.preventDefault();
+            
+            // Get the values entered by the user
+            var email = document.getElementById('login-email').value;
+            var password = document.getElementById('login-password').value;
+
+            // Check if the email and password match the admin credentials
+            if (email === 'admin@musicpro.com' && password === 'admin@123') {
+                alert('Login successful Admin');
+                window.location.href = './index.html'; // Redirect to another page if login is successful
+            }
+            else if (email === 'navanshushaily@musicpro.com' && password === 'navanshushaily@123') {
+                alert('Login successful Navanshu shaily');
+                window.location.href = './index.html'; // Redirect to another page if login is successful
+            } 
+             else
+             {
+                alert('Invalid username or password');
+            }
+        }
+
+        // Function to validate the signup form (optional, add your validation logic here)
+        function validateSignup(event) {
+            event.preventDefault();
+
+            var username = document.getElementById('signup-username').value;
+            var email = document.getElementById('signup-email').value;
+            var password = document.getElementById('signup-password').value;
+
+            // Add signup validation logic (you can enhance this with actual conditions)
+            if (username && email && password) {
+                alert('Sign up successful');
+                // Here you could redirect to the login page or another page
+                window.location.href = './Log in.html';
+            } else {
+                alert('Please fill out all fields');
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="main">
+        <label class="brand"><img src="./Resources/SpotiFlyer.svg" />Music Pro</label>
+        <input type="checkbox" id="chk" aria-hidden="true" />
+
+        <!-- Signup Section -->
+        <div class="singup">
+            <form onsubmit="validateSignup(event)">
+                <label for="chk" aria-hidden="true">Sign up</label>
+                <input type="text" id="signup-username" name="txt" placeholder="User name" required />
+                <input type="email" id="signup-email" name="email" placeholder="Email" required />
+                <input type="password" id="signup-password" name="pswd" placeholder="Password" required />
+                <button class="button" type="submit">Sign up</button>
+            </form>
+        </div>
+
+        <!-- Login Section -->
+        <div class="login">
+            <form onsubmit="validateLogin(event)">
+                <label for="chk" aria-hidden="true">Log in</label>
+                <input type="email" id="login-email" name="email" placeholder="Email" required />
+                <input type="password" id="login-password" name="pswd" placeholder="Password" required />
+                <button class="button" type="submit">Log in</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
